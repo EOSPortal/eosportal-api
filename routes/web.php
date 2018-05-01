@@ -30,13 +30,13 @@ Route::get('chains', [
     'as' => 'chains',
     'uses' => 'ChainsController@index'
 ]);
-Route::get('info/all', [
-    'as' => 'info.all',
-    'uses' => 'InfoController@all'
+Route::get('infos/all', [
+    'as' => 'infos.all',
+    'uses' => 'InfosController@all'
 ]);
-Route::get('info', [
-    'as' => 'info',
-    'uses' => 'InfoController@index'
+Route::get('infos', [
+    'as' => 'infos',
+    'uses' => 'InfosController@index'
 ]);
 Route::get('producers/all', [
     'as' => 'producers.all',
