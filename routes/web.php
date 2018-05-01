@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontPageController@producerList');
 Route::get('blocks/all', [
     'as' => 'blocks.all',
     'uses' => 'BlocksController@all'
@@ -46,3 +44,4 @@ Route::get('producers', [
     'as' => 'producers',
     'uses' => 'ProducersController@index'
 ]);
+
