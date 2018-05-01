@@ -10,6 +10,7 @@
                 <th>Name</th>
                 <th>Organization</th>
                 <th>Block</th>
+                <th>Block created at</th>
                 <th>Contact</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->organization }}</td>
                 <td>{{ $item->num_blocks }}</td>
+                <td>{{ $item->created_at }}</td>
                 <td>{{ $item->contact }}</td>
             </tr>
 
