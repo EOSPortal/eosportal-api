@@ -24,7 +24,7 @@ $(function() {
     $('#info-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{!! route('info.all') !!}',
+        ajax: '{!! route('infos.all') !!}',
         columns: [
             { data: 'id', name: 'id' },
             { data: 'chain_id', name: 'chain_id' },
