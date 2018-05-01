@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Info;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class InfoController extends Controller
 {
     public function all()
     {
-        return Datatables::of(Info::query())->make(true);
+        return DataTables::of(Info::query())->make(true);
     }
 
     public function index()

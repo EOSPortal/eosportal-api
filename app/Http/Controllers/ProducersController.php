@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Producer;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProducersController extends Controller
 {
     public function all()
     {
-        return Datatables::of(Producer::query())->make(true);
+        return DataTables::of(Producer::query())->make(true);
     }
 
     public function index()

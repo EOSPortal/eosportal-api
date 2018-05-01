@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Block;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class BlocksController extends Controller
 {
     public function all()
     {
-        return Datatables::of(Block::query())->make(true);
+        return DataTables::of(Block::query())->make(true);
     }
 
     public function index()
