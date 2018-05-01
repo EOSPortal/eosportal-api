@@ -7,7 +7,6 @@
                 <th>id</th>
                 <th>name</th>
                 <th>api_url</th>
-                <th>api_port</th>
                 <th>created_at</th>
                 <th>updated_at</th>
             </tr>
@@ -26,7 +25,6 @@ $(function() {
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
             { data: 'api_url', name: 'api_url' },
-            { data: 'api_port', name: 'api_port' },
             { data: 'created_at', name: 'created_at' },
             { data: 'updated_at', name: 'updated_at' }
         ]
