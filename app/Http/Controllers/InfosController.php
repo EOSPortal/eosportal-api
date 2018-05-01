@@ -6,7 +6,7 @@ use App\Info;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class InfoController extends Controller
+class InfosController extends Controller
 {
     public function all()
     {
