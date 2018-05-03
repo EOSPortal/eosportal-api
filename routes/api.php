@@ -13,6 +13,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::namespace('Api')->name('api.')->group(function ()
+{
+    Route::name('chains')->get('chains', 'ChainController@index');
+
+    Route::domain('{chain}.eosportal.io')->group(function ()
+    {
+        Route::name('infos')->get('infos','InfoController@index');
+
+        Route::name('blocks')->get('blocks', 'BlockController@index');
+        Route::name('blocks.')->group(function() {
+            Route::name('show')->get('blocks/{id}', 'BlockController@show');
+        });
+
+        Route::name('producers')->get('producers', 'ProducerController@index');
+        Route::name('producers.')->group(function() {
+            Route::name('show')->get('producers/{id}', 'ProducerController@show');
+        });
+    });
+
 });
