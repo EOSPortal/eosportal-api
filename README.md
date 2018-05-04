@@ -32,3 +32,7 @@ This will list all block producers of the chain named "chainName".
 
 This will list information about a specific block producer (from chain "chainName") identified by (int) "id".
 
+`GET chainName.eosportal.io/api/producers/id/blocks`
+
+This will list all blocks produced by a specific block producer (from chain "chainName") identified by (int) "id".
+

@@ -15,20 +15,21 @@ use Illuminate\Http\Request;
 
 Route::namespace('Api')->name('api.')->group(function ()
 {
-    Route::name('chains')->get('chains', 'ChainController@index');
+    Route::name('chains')->get('chains',                        'ChainController@index');
 
     Route::domain('{chain}.'.config('app.domain'))->group(function ()
     {
-        Route::name('infos')->get('infos','InfoController@index');
+        Route::name('infos')->get('infos',                      'InfoController@index');
 
-        Route::name('blocks')->get('blocks', 'BlockController@index');
+        Route::name('blocks')->get('blocks',                    'BlockController@index');
         Route::name('blocks.')->group(function() {
-            Route::name('show')->get('blocks/{id}', 'BlockController@show');
+            Route::name('show')->get('blocks/{id}',             'BlockController@show');
         });
 
-        Route::name('producers')->get('producers', 'ProducerController@index');
+        Route::name('producers')->get('producers',              'ProducerController@index');
         Route::name('producers.')->group(function() {
-            Route::name('show')->get('producers/{id}', 'ProducerController@show');
+            Route::name('show')->get('producers/{id}',          'ProducerController@show');
+            Route::name('blocks')->get('producers/{id}/blocks', 'ProducerController@blocks');
         });
     });
 
