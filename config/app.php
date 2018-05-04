@@ -2,7 +2,7 @@
 
 return [
 
-    'page_size' => 25,
+    'page_size' => 100,
     'domain' => env('APP_DOMAIN', 'localhost'),
 
     /*
