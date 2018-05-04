@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Chain;
+use App\Http\Controllers\Api\Controller;
 use App\Http\Resources\Producer as ProducerResource;
-use App\Producer;
 use Illuminate\Http\Request;
 
 class ProducerController extends Controller
 {
-    public function index()
+    public function index($chain)
     {
-        return new ProducerResource(Producer::all());
+        $chain = Chain::where('name', $chain)->firstOrFail();
+        return new ProducerResource($chain->producers()->paginate($this->pageSize));
     }
 
-    public function show($id)
+    public function show($chain, $id)
     {
-        return new ProducerResource(Producer::all());
+        $chain = Chain::where('name', $chain)->firstOrFail();
+        return new ProducerResource($chain->producers()->where('producers.id', $id)->get());
     }
 
 }

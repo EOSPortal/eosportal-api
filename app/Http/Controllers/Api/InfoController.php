@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Chain;
+use App\Http\Controllers\Api\Controller;
 use App\Http\Resources\Info as InfoResource;
-use App\Info;
 use Illuminate\Http\Request;
 
 class InfoController extends Controller
 {
-    public function index()
+    public function index($chain)
     {
-        return new InfoResource(Info::all());
+        $chain = Chain::where('name', $chain)->firstOrFail();
+        return new InfoResource($chain->infos()->paginate($this->pageSize));
     }
 
 }
