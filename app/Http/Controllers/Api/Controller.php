@@ -8,7 +8,7 @@ class Controller extends AppController
 {
     public function __construct()
     {
-        $this->pageSize = config('app.page_size');
+        $this->pageSize = request('rows', config('app.page_size'));
     }
 
 }
