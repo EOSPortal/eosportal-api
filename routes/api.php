@@ -17,7 +17,7 @@ Route::namespace('Api')->name('api.')->group(function ()
 {
     Route::name('chains')->get('chains', 'ChainController@index');
 
-    Route::domain('{chain}.eosportal.io')->group(function ()
+    Route::domain('{chain}.'.config('app.domain'))->group(function ()
     {
         Route::name('infos')->get('infos','InfoController@index');
 
