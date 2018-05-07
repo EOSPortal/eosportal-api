@@ -1,6 +1,7 @@
 # eosportal-api
 
 You can test this API here: http://prototype.eosportal.io/api/
+
 This application provides the following endpoints:
 
 ### chains
