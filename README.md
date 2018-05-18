@@ -9,32 +9,30 @@ This application provides the following endpoints:
 
 This will list all chains being tracked.
 
-## Chain specific
-
 ### blocks
-`GET chainName.eosportal.io/api/blocks`
+`GET eosportal.io/api/chains/{chain_id}/blocks`
 
-This will list all blocks of the chain named "chainName".
+This will list all blocks of a specific chain.
 
-`GET chainName.eosportal.io/api/blocks/id`
+`GET eosportal.io/api/blocks/{block_id}`
 
-This will list information about a specific block (from chain "chainName") identified by (int) "id".
+This will list information about a specific block.
 
 ### infos
-`GET chainName.eosportal.io/api/infos`
+`GET eosportal.io/api/chains/{chain_id}/infos`
 
-This will list all information of the chain named "chainName" gathered from the full node command `get info`.
+This will list all information of a specific chain gathered from the full node command `get info`.
 
 ### producers
-`GET chainName.eosportal.io/api/producers`
+`GET eosportal.io/api/chains/{chain_id}/producers`
 
-This will list all block producers of the chain named "chainName".
+This will list all block producers of a specific chain.
 
-`GET chainName.eosportal.io/api/producers/id`
+`GET eosportal.io/api/producers/{producer_id}`
 
-This will list information about a specific block producer (from chain "chainName") identified by (int) "id".
+This will list information about a specific block producer.
 
-`GET chainName.eosportal.io/api/producers/id/blocks`
+`GET eosportal.io/api/producers/{producer_id}/blocks`
 
-This will list all blocks produced by a specific block producer (from chain "chainName") identified by (int) "id".
+This will list all blocks produced by a specific block producer.
 
