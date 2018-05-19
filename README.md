@@ -1,38 +1,38 @@
 # eosportal-api
 
-You can test this API here: http://prototype.eosportal.io/api/
+You can test this API here: http://api.eosportal.io/
 
 This application provides the following endpoints:
 
 ### chains
-`GET eosportal.io/api/chains`
+`GET api.eosportal.io/chains`
 
 This will list all chains being tracked.
 
 ### blocks
-`GET eosportal.io/api/chains/{chain_id}/blocks`
+`GET api.eosportal.io/chains/{chain_id}/blocks`
 
 This will list all blocks of a specific chain.
 
-`GET eosportal.io/api/blocks/{block_id}`
+`GET api.eosportal.io/blocks/{block_id}`
 
 This will list information about a specific block.
 
 ### infos
-`GET eosportal.io/api/chains/{chain_id}/infos`
+`GET api.eosportal.io/chains/{chain_id}/infos`
 
 This will list all information of a specific chain gathered from the full node command `get info`.
 
 ### producers
-`GET eosportal.io/api/chains/{chain_id}/producers`
+`GET api.eosportal.io/chains/{chain_id}/producers`
 
 This will list all block producers of a specific chain.
 
-`GET eosportal.io/api/producers/{producer_id}`
+`GET api.eosportal.io/producers/{producer_id}`
 
 This will list information about a specific block producer.
 
-`GET eosportal.io/api/producers/{producer_id}/blocks`
+`GET api.eosportal.io/producers/{producer_id}/blocks`
 
 This will list all blocks produced by a specific block producer.
 
