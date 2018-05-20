@@ -11,4 +11,9 @@ class Info extends Model
         return $this->belongsTo('App\Producer');
     }
 
+    public function headProducer()
+    {
+        return $this->belongsTo('App\Producer', 'head_producer_id');
+    }
+
 }
