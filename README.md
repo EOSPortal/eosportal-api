@@ -36,3 +36,15 @@ This will list information about a specific block producer.
 
 This will list all blocks produced by a specific block producer.
 
+## Run it locally:
+
+```sh
+git clone https://github.com/EOSPortal/eosportal-api.git ${datadir:-/var/www}
+cd ${datadir}
+cp .env.development .env
+vi .env (edit the database connection variables)
+composer install
+php artisan migrate
+php artisan db:seed
+```
+
