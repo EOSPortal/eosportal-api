@@ -11,5 +11,10 @@ class ChainController extends Controller
     {
         return new ChainResource(Chain::paginate($this->pageSize));
     }
+    
+    public function show($chain_id)
+    {
+        return new ChainResource(Chain::findOrFail($chain_id));
+    }
 
 }
