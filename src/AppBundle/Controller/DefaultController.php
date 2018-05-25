@@ -34,7 +34,22 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/chains", name="store_chains")
+     * @Route("/chains/{id}", name="chain")
+     * @Method({"GET"})
+     */
+    public function chainAction(string $id)
+    {
+        $service = $this->get('eosportal.chains.chain_service');
+        $chain = $service->findOneBy(['id' => $id]);
+        
+        return new JsonResponse([
+            'id' => $chain->id(),
+            'url' => $chain->url(),
+        ]);
+    }
+
+    /**
+     * @Route("/chain", name="store_chains")
      * @Method({"POST"})
      */
     public function storeChainsAction(Request $request)
