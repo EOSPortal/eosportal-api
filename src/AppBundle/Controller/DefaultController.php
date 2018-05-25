@@ -34,8 +34,8 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/chains-upload", name="store_chains")
-     * @Method({"GET"})
+     * @Route("/chains", name="store_chains")
+     * @Method({"POST"})
      */
     public function storeChainsAction(Request $request)
     {
@@ -45,7 +45,6 @@ class DefaultController extends Controller
         $url = $request->get('url');
 
         // TODO: validate chain
-
         $chain = new Chain($url);
         $service->store($chain);
 
