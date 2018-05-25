@@ -2,7 +2,6 @@
 
 namespace AppBundle\DataFixtures;
 
-use AppBundle\Entity\Chain;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -25,9 +24,10 @@ class ChainFixtures extends Fixture implements FixtureInterface, OrderedFixtureI
      */
     public function load(ObjectManager $manager)
     {
-        $entity = new Chain('http://dev.cryptolions.io:38888');
-        $this->container->get('doctrine.orm.entity_manager')->persist($entity);
-        $this->container->get('doctrine.orm.entity_manager')->flush($entity);
+        $service = $this->container->get('eosportal.chains.chain_service');
+        $service->create('http://dev.cryptolions.io:38888');
+        $service->create('http://dev.cryptolions.io:38888');
+        $service->create('http://35.180.46.228:8888/');
     }
 
     public function getOrder()

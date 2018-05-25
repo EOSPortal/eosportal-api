@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Chain;
-use AppBundle\Services\ChainService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -24,10 +23,7 @@ class DefaultController extends Controller
 
         /** @var Chain $chain */
         foreach ($chains as $chain) {
-            $chainsReturn[] = [
-                'id' => $chain->id(),
-                'url' => $chain->url(),
-            ];
+            $chainsReturn[] = $chain->toArray();
         }
 
         return new JsonResponse($chainsReturn);
@@ -42,10 +38,11 @@ class DefaultController extends Controller
         $service = $this->get('eosportal.chains.chain_service');
         $chain = $service->findOneBy(['id' => $id]);
 
-        return new JsonResponse([
-            'id' => $chain->id(),
-            'url' => $chain->url(),
-        ]);
+        if (!$chain) {
+            throw $this->createNotFoundException('Unable to find chain.');
+        }
+
+        return new JsonResponse($chain->toArray());
     }
 
     /**
@@ -54,16 +51,15 @@ class DefaultController extends Controller
      */
     public function storeChainsAction(Request $request)
     {
-        /** @var ChainService $service */
         $service = $this->get('eosportal.chains.chain_service');
-
         $url = $request->get('url');
+        try {
+            $chain = $service->create($url);
+        } catch (\Exception $ex) {
+            throw $this->createNotFoundException('Unable to find chain.');
+        }
 
-        // TODO: validate chain
-        $chain = new Chain($url);
-        $service->store($chain);
-
-        return new JsonResponse(['id' => $chain->id()]);
+        return new JsonResponse($chain->toArray());
     }
 
     /**

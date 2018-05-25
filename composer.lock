@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "50d47de75a843808e7eec598b8fbf60d",
+    "content-hash": "9130bada7a2c359e9ef2911c15ed239f",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1529,6 +1529,43 @@
                 "xml"
             ],
             "time": "2018-02-04T17:48:54+00:00"
+        },
+        {
+            "name": "kesar/eos-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kesar/eos-php.git",
+                "reference": "5e1d8b358dac03c21afb352be240e41adf671bf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kesar/eos-php/zipball/5e1d8b358dac03c21afb352be240e41adf671bf8",
+                "reference": "5e1d8b358dac03c21afb352be240e41adf671bf8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3.0",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cesar Rodriguez",
+                    "email": "kesarr+eos@gmail.com"
+                }
+            ],
+            "description": "EOS client library in PHP",
+            "time": "2018-05-25 18:22:53"
         },
         {
             "name": "monolog/monolog",
@@ -3648,12 +3685,14 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "kesar/eos-php": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=7.1"
     },
     "platform-dev": []
 }

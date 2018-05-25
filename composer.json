@@ -1,7 +1,8 @@
 {
     "name": "eosportal/eosportal-api",
-    "license": "proprietary",
+    "license": "gpl",
     "type": "project",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle"
@@ -27,6 +28,7 @@
         "fzaninotto/faker": "^1.5",
         "incenteev/composer-parameter-handler": "^2.0",
         "jms/serializer": "^1.1",
+        "kesar/eos-php": "dev-master",
         "nelmio/cors-bundle": "^1.5",
         "psr/http-message": "^1.0",
         "qandidate/symfony-json-request-transformer": "^1.2",

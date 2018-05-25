@@ -11,3 +11,9 @@ AppBundle\Entity\Chain:
     fields:
         url:
             type: string
+        chainId:
+            type: string
+        createdAt:
+            type: datetime
+        nodes:
+            type: simple_array
