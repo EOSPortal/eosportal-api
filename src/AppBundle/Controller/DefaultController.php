@@ -41,7 +41,7 @@ class DefaultController extends Controller
     {
         $service = $this->get('eosportal.chains.chain_service');
         $chain = $service->findOneBy(['id' => $id]);
-        
+
         return new JsonResponse([
             'id' => $chain->id(),
             'url' => $chain->url(),

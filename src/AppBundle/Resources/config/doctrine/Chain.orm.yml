@@ -2,6 +2,8 @@ AppBundle\Entity\Chain:
     type: entity
     repositoryClass: AppBundle\Services\ChainService
     uniqueConstraints:
+        unique_url:
+            columns: [ url ]
     id:
         id:
             type: guid
