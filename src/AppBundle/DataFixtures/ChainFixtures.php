@@ -25,7 +25,7 @@ class ChainFixtures extends Fixture implements FixtureInterface, OrderedFixtureI
      */
     public function load(ObjectManager $manager)
     {
-        $entity = new Chain('url');
+        $entity = new Chain('http://dev.cryptolions.io:38888');
         $this->container->get('doctrine.orm.entity_manager')->persist($entity);
         $this->container->get('doctrine.orm.entity_manager')->flush($entity);
     }
