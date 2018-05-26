@@ -1,52 +1,48 @@
-# eosportal-api
+🦉 EOSPORTAL API
+========================
 
-You can test this API here: http://api.eosportal.io/
+EOSPORTAL API is a PHP Backend based on Symfony3 that connects to a MySQL database.
 
-This application provides the following endpoints:
+📌 Requirements
+------------
 
-### chains
-`GET api.eosportal.io/chains`
+  * PHP 7 or higher;
+  * mysql PHP extension enabled;
+  * Apcu extension (optional)
+  * and the [usual Symfony application requirements][1].
+  
+📌 Installing Composer
+------------
 
-This will list all chains being tracked.
+Composer is the dependency manager used by modern PHP applications and it can also be used to create new applications.
 
-### blocks
-`GET api.eosportal.io/chains/{chain_id}/blocks`
+Download the installer from [getcomposer.org/download](https://getcomposer.org/download/), execute it and follow the instructions.
 
-This will list all blocks of a specific chain.
 
-`GET api.eosportal.io/blocks/{block_id}`
+📌 Installation
+------------
 
-This will list information about a specific block.
+Execute this command to install the project:
 
-### infos
-`GET api.eosportal.io/chains/{chain_id}/infos`
-
-This will list all information of a specific chain gathered from the full node command `get info`.
-
-### producers
-`GET api.eosportal.io/chains/{chain_id}/producers`
-
-This will list all block producers of a specific chain.
-
-`GET api.eosportal.io/producers/{producer_id}`
-
-This will list information about a specific block producer.
-
-`GET api.eosportal.io/producers/{producer_id}/blocks`
-
-This will list all blocks produced by a specific block producer.
-
-## Run it locally:
-
-```sh
-git clone https://github.com/EOSPortal/eosportal-api.git ${datadir:-/var/www}
-cd ${datadir}
-cp .env.development .env
-vi .env (edit the database connection variables)
-composer install
-php artisan migrate
-php artisan db:seed
-
-php -S localhost:8000 -t public
+```bash
+$ git clone git@github.com:EOSPortal/eosportal-api.git
+$ cd eosportal-api
+$ composer install
 ```
 
+📌 Usage
+-----
+
+There's no need to configure anything to run the application. Just execute this
+command to run the built-in web server and access the application in your
+browser at <http://localhost:8000>:
+
+```bash
+$ php bin/console server:run
+```
+
+Alternatively, you can [configure a fully-featured web server][2] like Nginx
+or Apache to run the application.
+
+[1]: https://symfony.com/doc/current/reference/requirements.html
+[2]: https://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html

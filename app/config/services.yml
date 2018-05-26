@@ -1,0 +1,20 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+  eosportal.cache_service:
+    class: AppBundle\Services\ApcuCacheService # AppBundle\Services\NullCacheService
+
+  eosportal.chains.chain:
+    class: AppBundle\DataFixtures\ChainFixtures
+    tags: [doctrine.fixture.orm]
+    public: false
+
+  eosportal.chains.chain_service:
+    class: AppBundle\Services\ChainService
+    factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
+    arguments:
+      - AppBundle\Entity\Chain
+    lazy: true
