@@ -2,26 +2,25 @@
 
 namespace AppBundle\Entity;
 
-use Ramsey\Uuid\Uuid;
-
 class Chain
 {
     private $id;
     private $createdAt;
     private $url;
     private $chainId;
+    private $enabled;
     private $nodes;
 
     public function __construct(string $url, string $chainId)
     {
-        $this->id = Uuid::uuid4()->toString();
         $this->url = $url;
         $this->chainId = $chainId;
         $this->createdAt = new \DateTime();
+        $this->enabled = true;
         $this->nodes[] = $url;
     }
 
-    public function id(): string
+    public function id(): int
     {
         return $this->id;
     }
@@ -51,6 +50,11 @@ class Chain
         if (!in_array($node, $this->nodes)) {
             $this->nodes[] = $node;
         }
+    }
+
+    public function enabled(): bool
+    {
+        return $this->enabled;
     }
 
     public function toArray(): array

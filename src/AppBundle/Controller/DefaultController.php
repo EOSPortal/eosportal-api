@@ -18,7 +18,7 @@ class DefaultController extends Controller
     public function chainsAction()
     {
         $service = $this->get('eosportal.chains.chain_service');
-        $chains = $service->findAll();
+        $chains = $service->findBy(['enabled' => true]);
         $chainsReturn = [];
 
         /** @var Chain $chain */

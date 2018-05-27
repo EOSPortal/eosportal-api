@@ -6,8 +6,8 @@ AppBundle\Entity\Chain:
             columns: [ url ]
     id:
         id:
-            type: guid
-            generator: { strategy: UUID }
+            type: integer
+            generator: { strategy: AUTO }
     fields:
         url:
             type: string
@@ -15,5 +15,7 @@ AppBundle\Entity\Chain:
             type: string
         createdAt:
             type: datetime
+        enabled:
+            type: boolean
         nodes:
             type: simple_array

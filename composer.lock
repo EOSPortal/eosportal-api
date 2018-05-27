@@ -1536,12 +1536,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kesar/eos-php.git",
-                "reference": "5e1d8b358dac03c21afb352be240e41adf671bf8"
+                "reference": "27c161e2a7cbb7e2ace41d8f708ab7da73373092"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kesar/eos-php/zipball/5e1d8b358dac03c21afb352be240e41adf671bf8",
-                "reference": "5e1d8b358dac03c21afb352be240e41adf671bf8",
+                "url": "https://api.github.com/repos/kesar/eos-php/zipball/27c161e2a7cbb7e2ace41d8f708ab7da73373092",
+                "reference": "27c161e2a7cbb7e2ace41d8f708ab7da73373092",
                 "shasum": ""
             },
             "require": {
@@ -1565,7 +1565,7 @@
                 }
             ],
             "description": "EOS client library in PHP",
-            "time": "2018-05-25 18:22:53"
+            "time": "2018-05-27 14:14:56"
         },
         {
             "name": "monolog/monolog",

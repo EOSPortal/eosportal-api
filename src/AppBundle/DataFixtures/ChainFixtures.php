@@ -25,9 +25,20 @@ class ChainFixtures extends Fixture implements FixtureInterface, OrderedFixtureI
     public function load(ObjectManager $manager)
     {
         $service = $this->container->get('eosportal.chains.chain_service');
-        $service->create('http://dev.cryptolions.io:38888');
-        $service->create('http://dev.cryptolions.io:38888');
-        $service->create('http://35.180.46.228:8888/');
+        $urls = [
+            'http://dev.cryptolions.io:38888',
+            'http://35.180.46.228:8888',
+            'http://37.139.15.114:8800/',
+            'http://initg.n3.eosargentina.io:8888',
+        ];
+
+        foreach ($urls as $url) {
+            try {
+                $service->create($url);
+            } catch (\Exception $ex) {
+
+            }
+        }
     }
 
     public function getOrder()
