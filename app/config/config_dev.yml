@@ -36,3 +36,7 @@ monolog:
         #chromephp:
         #    type: chromephp
         #    level: info
+
+doctrine:
+    dbal:
+        url: %database_url%

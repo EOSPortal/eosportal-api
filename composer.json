@@ -22,6 +22,9 @@
     },
     "require": {
         "php": ">=7.1",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "ext-apcu": "*",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
         "doctrine/orm": "^2.5",
