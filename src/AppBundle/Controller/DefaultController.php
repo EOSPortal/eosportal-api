@@ -69,4 +69,31 @@ class DefaultController extends Controller
     {
         return new JsonResponse([]);
     }
+
+    /**
+     * @Route("/bps/{url}", name="bps", requirements={"url"=".+"})
+     */
+    public function bpsAction($url)
+    {
+        $urlParsed = parse_url($url);
+        if (!isset($urlParsed['host'], $urlParsed['scheme'])) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $urlJsonBp = $urlParsed['scheme'].'://'.$urlParsed['host'].'/bp.json';
+        $exist = false;
+        $content = apcu_fetch($urlJsonBp, $exist);
+        if ($exist) {
+            return new JsonResponse($content);
+        }
+
+        $content = json_decode(file_get_contents($urlJsonBp));
+        if (!$content || !isset($content['producer_account_name'])) {
+            throw $this->createAccessDeniedException();
+        }
+
+        apcu_store($urlJsonBp, $content, 300);
+
+        return new JsonResponse($content);
+    }
 }
