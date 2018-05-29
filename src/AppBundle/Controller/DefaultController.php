@@ -88,7 +88,7 @@ class DefaultController extends Controller
         }
 
         $content = json_decode(file_get_contents($urlJsonBp));
-        if (!$content || !isset($content['producer_account_name'])) {
+        if (!$content || !isset($content->producer_account_name)) {
             throw $this->createAccessDeniedException();
         }
 
