@@ -39,7 +39,7 @@ class DefaultController extends Controller
         $chain = $service->findOneBy(['id' => $id]);
 
         if (!$chain) {
-            throw $this->createNotFoundException('Unable to find chain.');
+            return new JsonResponse(['error' => 'chain not found'], 404);
         }
 
         return new JsonResponse($chain->toArray());
@@ -56,7 +56,7 @@ class DefaultController extends Controller
         try {
             $chain = $service->create($url);
         } catch (\Exception $ex) {
-            throw $this->createNotFoundException('Unable to find chain.');
+            return new JsonResponse(['error' => 'invalid chain to store'], 400);
         }
 
         return new JsonResponse($chain->toArray());
@@ -77,7 +77,7 @@ class DefaultController extends Controller
     {
         $urlParsed = parse_url($url);
         if (!isset($urlParsed['host'], $urlParsed['scheme'])) {
-            throw $this->createAccessDeniedException();
+            return new JsonResponse(['error' => 'invalid url'], 400);
         }
 
         $urlJsonBp = $urlParsed['scheme'].'://'.$urlParsed['host'].'/bp.json';
@@ -89,7 +89,7 @@ class DefaultController extends Controller
 
         $content = json_decode(file_get_contents($urlJsonBp));
         if (!$content || !isset($content->producer_account_name)) {
-            throw $this->createAccessDeniedException();
+            return new JsonResponse(['error' => 'invalid JSON'], 400);
         }
 
         apcu_store($urlJsonBp, $content, 300);
